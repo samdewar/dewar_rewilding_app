@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'credentials.dart';
+import 'process.dart';
 
+var temp=[FlSpot(0, 0)];
 void main() {
+
+  Process p = new Process();
+  
+  temp = p.getPlots();
   runApp(MyApp());
 }
 
@@ -34,15 +40,9 @@ class MyHomePage extends StatelessWidget {
       maxY: 6,
       lineBarsData: [
         LineChartBarData(
-          spots: [
-            FlSpot(0, 3),
-            FlSpot(1, 1),
-            FlSpot(2, 4),
-            FlSpot(3, 2),
-            FlSpot(4, 5),
-            FlSpot(5, 1),
-            FlSpot(6, 29),
-          ],
+          spots: temp
+            
+          ,
           isCurved: false,
           // colors: [Colors.blue],
           dotData: FlDotData(show: false),
