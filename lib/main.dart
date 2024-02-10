@@ -4,11 +4,12 @@ import 'credentials.dart';
 import 'process.dart';
 
 var temp=[FlSpot(0, 0)];
-void main() {
+Future<void> main() async {
 
   Process p = new Process();
-  
-  temp = p.getPlots();
+  await p.getTreeData();
+  await p.retreivePlantingLog("Murthwaite");
+  temp = await p.getPlots();
   runApp(MyApp());
 }
 
@@ -34,8 +35,8 @@ class MyHomePage extends StatelessWidget {
         show: true,
         border: Border.all(color: const Color(0xff37434d), width: 1),
       ),
-      minX: 0,
-      maxX: 7,
+      minX: 2001,
+      maxX: 2500,
       minY: 0,
       maxY: 6,
       lineBarsData: [
