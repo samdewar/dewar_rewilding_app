@@ -1,8 +1,5 @@
-import 'dart:ffi';
 
 import 'store.dart';
-import 'dart:convert';
-import 'dart:io';
 import 'package:fl_chart/fl_chart.dart';
 
 /*
@@ -11,7 +8,7 @@ import 'package:fl_chart/fl_chart.dart';
 */
 
 class Process {
-  Store store = new Store();
+  Store store = Store();
   List<Map<String, dynamic>> plantingLogs = [];
   List<Map<String, dynamic>> carbonSequestration = [];
   Map<int, dynamic> years= new Map<int,dynamic>();
@@ -29,7 +26,7 @@ class Process {
 // Work out the amount of yearly carbon sequestered at different points in tree's lifespan
   Future<void> calculatePlots() async {
     int start=_startDate();
-    int now = new DateTime.now().year;
+    int now = DateTime.now().year;
     int carbonIncrease;
     for(int i=start, j=0;i<now;i++, j++){
       carbonIncrease=1;
